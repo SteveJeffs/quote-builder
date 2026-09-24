@@ -3,7 +3,15 @@ import { packages, addons, careTiers } from './data/pricing.js'
 
 function App() {
   const [selectedPackage, setSelectedPackage] = useState('standard')
+  const [selectedAddons, setSelectedAddons] = useState([])
 
+  function toggleAddons(id) {
+    if (selectedAddons.includes(id)) {
+      setSelectedAddons(selectedAddons.filter((addonId) => addonId !== id))
+    } else {
+      setSelectedAddons([...selectedAddons, id])
+    }
+  }
   return (
     <div>
       <h1>Keystone quote builder</h1>
@@ -27,7 +35,14 @@ function App() {
       <ul>
         {addons.map((addon) => (
           <li key={addon.id}>
-            {addon.name} - £{addon.price}
+            <label>
+              <input
+              type="checkbox"
+              checked={selectedAddons.includes(addon.id)}
+              onChange={() => toggleAddons(addon.id)}
+              />
+              {addon.name} - £{addon.price}
+            </label>
           </li>
         ))}
       </ul>

@@ -1,13 +1,19 @@
+import { useState } from 'react'
 import { packages, addons, careTiers } from './data/pricing.js'
 
 function App() {
+  const [selectedPackage, setSelectedPackage] = useState('standard')
+  
   return (
     <div>
       <h1>Keystone quote builder</h1>
+      <p>Selected: {selectedPackage}</p>
       <ul>
         {packages.map((pkg) => (
           <li key={pkg.id}>
-            {pkg.name} - £{pkg.price}
+            <button onClick={() => setSelectedPackage(pkg.id)}>
+              {pkg.name} - £{pkg.price}
+            </button>
           </li>
         ))}
       </ul>
@@ -34,3 +40,4 @@ function App() {
 }
 
 export default App
+

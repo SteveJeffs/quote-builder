@@ -3,7 +3,7 @@ import { packages, addons, careTiers } from './data/pricing.js'
 
 function App() {
   const [selectedPackage, setSelectedPackage] = useState('standard')
-  
+
   return (
     <div>
       <h1>Keystone quote builder</h1>
@@ -11,7 +11,12 @@ function App() {
       <ul>
         {packages.map((pkg) => (
           <li key={pkg.id}>
-            <button onClick={() => setSelectedPackage(pkg.id)}>
+            <button
+              onClick={() => setSelectedPackage(pkg.id)}
+              style={{
+                fontWeight: pkg.id === selectedPackage ? 'bold' : 'normal',
+              }}
+            >
               {pkg.name} - £{pkg.price}
             </button>
           </li>

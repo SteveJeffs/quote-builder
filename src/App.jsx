@@ -13,6 +13,15 @@ function App() {
       setSelectedAddons([...selectedAddons, id])
     }
   }
+
+  const chosenPackage = packages.find((pkg) => pkg.id === selectedPackage)
+  const packagePrice = chosenPackage.price
+  const chosenAddons = addons.filter((addon) => selectedAddons.includes(addon.id))
+  const addonsPrice = chosenAddons.reduce((total, addon) => total + addon.price, 0)
+  const chosenTier = careTiers.find((tier) => tier.id === selectedTier)
+  const tierPrice = chosenTier.price
+  const projectTotal = packagePrice + addonsPrice
+
   return (
     <div>
       <h1>Keystone quote builder</h1>
@@ -38,9 +47,9 @@ function App() {
           <li key={addon.id}>
             <label>
               <input
-              type="checkbox"
-              checked={selectedAddons.includes(addon.id)}
-              onChange={() => toggleAddons(addon.id)}
+                type="checkbox"
+                checked={selectedAddons.includes(addon.id)}
+                onChange={() => toggleAddons(addon.id)}
               />
               {addon.name} - £{addon.price}
             </label>
@@ -56,13 +65,17 @@ function App() {
               onClick={() => setSelectedTier(tier.id)}
               style={{
                 fontWeight: tier.id === selectedTier ? 'bold' : 'normal',
-                  }}
-              >
-              {tier.name} - £{tier.price}/mo 
+              }}
+            >
+              {tier.name} - £{tier.price}/mo
             </button>
           </li>
         ))}
       </ul>
+
+      <h2>Your quote</h2>
+      <p>Project total: £{projectTotal}</p>
+      <p>Then £{tierPrice} per month</p>
     </div>
   )
 }

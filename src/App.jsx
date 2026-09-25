@@ -4,6 +4,7 @@ import { packages, addons, careTiers } from './data/pricing.js'
 function App() {
   const [selectedPackage, setSelectedPackage] = useState('standard')
   const [selectedAddons, setSelectedAddons] = useState([])
+  const [selectedTier, setSelectedTier] = useState('hosting')
 
   function toggleAddons(id) {
     if (selectedAddons.includes(id)) {
@@ -51,7 +52,14 @@ function App() {
       <ul>
         {careTiers.map((tier) => (
           <li key={tier.id}>
-            {tier.name} - £{tier.price}/mo
+            <button
+              onClick={() => setSelectedTier(tier.id)}
+              style={{
+                fontWeight: tier.id === selectedTier ? 'bold' : 'normal',
+                  }}
+              >
+              {tier.name} - £{tier.price}/mo 
+            </button>
           </li>
         ))}
       </ul>

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { packages, addons, careTiers } from './data/pricing.js'
 import PackagePicker from './components/PackagePicker.jsx'
 import AddonList from './components/AddonList.jsx'
+import CarePlanPicker from './components/CarePlanPicker.jsx'
 
 function App() {
   const [selectedPackage, setSelectedPackage] = useState('standard')
@@ -43,20 +44,12 @@ function App() {
       />
 
       <h2>Care plans</h2>
-      <ul>
-        {careTiers.map((tier) => (
-          <li key={tier.id}>
-            <button
-              onClick={() => setSelectedTier(tier.id)}
-              style={{
-                fontWeight: tier.id === selectedTier ? 'bold' : 'normal',
-              }}
-            >
-              {tier.name} - £{tier.price}/mo
-            </button>
-          </li>
-        ))}
-      </ul>
+      
+      <CarePlanPicker
+      careTiers={CareTiers}
+      selected={selectedTier}
+      onSelect={setSelectedTier}
+      />
 
       <h2>Your quote</h2>
       <p>Project total: £{projectTotal}</p>

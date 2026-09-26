@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+    --purple: #7C3AED;
+    --purple-light: #8B5CF6;
+    --charcoal: #1C1B1A;
+    --muted: #605E5A;
+    --border: #E4E2DD;
+    --surface: #FFFFFF;
+    --base: #F5F4F1;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--base);
+    color: var(--charcoal);
+    font-family: Inter, system-ui, sans-serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: Sora, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.015rem;
+    margin: 0;
+}
+
+.page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px;
+}
+
+.page h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.page h2 {
+    font-size: 18px;
+    margin: 32px 0 12px;
+}

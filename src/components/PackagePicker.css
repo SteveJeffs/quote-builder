@@ -1,0 +1,40 @@
+.picker {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 8px;
+}
+
+.picker-option {
+    width: 100%;
+    text-align: left;
+    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    color: var(--charcoal);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.picker-option:hover {
+    border-color: var(--purple-light);
+}
+
+.picker-option.is-selected {
+    border-color: var(--purple);
+    background: #F3EeFE;
+}
+
+.picker-price {
+    float: right;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--muted);
+}
+
+.picker-option.is-selected .picker-price {
+    color: var(--purple);
+}

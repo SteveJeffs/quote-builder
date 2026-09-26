@@ -27,7 +27,7 @@ function App() {
   const projectTotal = packagePrice + addonsPrice
 
   return (
-    <div>
+    <div className="page">
       <h1>Keystone quote builder</h1>
 
       <PackagePicker

@@ -1,15 +1,20 @@
+import './PackagePicker.css'
+
 function PackagePicker(props) {
     return (
-        <ul>
+        <ul className='picker'>
             {props.packages.map((pkg) => (
                 < li key={pkg.id}>
                     <button
+                    className={
+                        pkg.id === props.selected
+                        ? 'picker-option is-selected'
+                        : 'picker-option'
+                    }
                         onClick={() => props.onSelect(pkg.id)}
-                        style={{
-                            fontWeight: pkg.id === props.selected ? 'bold' : 'normal',
-                        }}
                     >
-                        {pkg.name} - £{pkg.price}
+                     {pkg.name}
+                     <span className="picker-price">£{pkg.price}</span>
                     </button>
                 </li>
             ))}

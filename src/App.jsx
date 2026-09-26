@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { packages, addons, careTiers } from './data/pricing.js'
+import PackagePicker from './components/PackagePicker.jsx'
+import AddonList from './components/AddonList.jsx'
 
 function App() {
   const [selectedPackage, setSelectedPackage] = useState('standard')
@@ -25,37 +27,20 @@ function App() {
   return (
     <div>
       <h1>Keystone quote builder</h1>
-      <p>Selected: {selectedPackage}</p>
-      <ul>
-        {packages.map((pkg) => (
-          <li key={pkg.id}>
-            <button
-              onClick={() => setSelectedPackage(pkg.id)}
-              style={{
-                fontWeight: pkg.id === selectedPackage ? 'bold' : 'normal',
-              }}
-            >
-              {pkg.name} - £{pkg.price}
-            </button>
-          </li>
-        ))}
-      </ul>
+
+      <PackagePicker
+        packages={packages}
+        selected={selectedPackage}
+        onSelect={setSelectedPackage}
+      />
 
       <h2>Add-ons</h2>
-      <ul>
-        {addons.map((addon) => (
-          <li key={addon.id}>
-            <label>
-              <input
-                type="checkbox"
-                checked={selectedAddons.includes(addon.id)}
-                onChange={() => toggleAddons(addon.id)}
-              />
-              {addon.name} - £{addon.price}
-            </label>
-          </li>
-        ))}
-      </ul>
+
+      <AddonList
+        addons={addons}
+        selected={selectedAddons}
+        onToggle={toggleAddons}
+      />
 
       <h2>Care plans</h2>
       <ul>

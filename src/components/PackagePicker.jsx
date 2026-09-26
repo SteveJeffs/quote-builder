@@ -16,3 +16,5 @@ function PackagePicker(props) {
         </ul >
     )
 }
+
+export default PackagePicker

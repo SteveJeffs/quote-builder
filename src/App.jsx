@@ -3,6 +3,7 @@ import { packages, addons, careTiers } from './data/pricing.js'
 import PackagePicker from './components/PackagePicker.jsx'
 import AddonList from './components/AddonList.jsx'
 import CarePlanPicker from './components/CarePlanPicker.jsx'
+import Quotesummary from './components/QuoteSummary.jsx'
 
 function App() {
   const [selectedPackage, setSelectedPackage] = useState('standard')
@@ -51,9 +52,11 @@ function App() {
       onSelect={setSelectedTier}
       />
 
-      <h2>Your quote</h2>
-      <p>Project total: £{projectTotal}</p>
-      <p>Then £{tierPrice} per month</p>
+      <QuoteSummary
+      projectTotal={projectTotal}
+      monthly={tierPrice}
+      />
+      
     </div>
   )
 }

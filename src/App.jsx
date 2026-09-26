@@ -3,7 +3,7 @@ import { packages, addons, careTiers } from './data/pricing.js'
 import PackagePicker from './components/PackagePicker.jsx'
 import AddonList from './components/AddonList.jsx'
 import CarePlanPicker from './components/CarePlanPicker.jsx'
-import Quotesummary from './components/QuoteSummary.jsx'
+import QuoteSummary from './components/QuoteSummary.jsx'
 
 function App() {
   const [selectedPackage, setSelectedPackage] = useState('standard')
@@ -47,7 +47,7 @@ function App() {
       <h2>Care plans</h2>
       
       <CarePlanPicker
-      careTiers={CareTiers}
+      careTiers={careTiers}
       selected={selectedTier}
       onSelect={setSelectedTier}
       />

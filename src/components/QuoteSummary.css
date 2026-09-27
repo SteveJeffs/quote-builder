@@ -44,3 +44,24 @@
     font-weight: 500;
     color: var(--charcoal);
 }
+
+.summary-lines {
+    margin-bottom: 20px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 8px 0;
+    font-size: 15px;
+    border-bottom: 1px dashed var(--border);
+}
+
+.summary-figure {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    color: var(--muted);
+    white-space: nowrap;
+}

@@ -62,6 +62,9 @@ function App() {
       />
 
       <QuoteSummary
+        chosenPackage={chosenPackage}
+        chosenAddons={chosenAddons}
+        chosenTier={chosenTier}
         projectTotal={projectTotal}
         monthly={tierPrice}
       />

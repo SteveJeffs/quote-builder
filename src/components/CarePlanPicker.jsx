@@ -1,15 +1,18 @@
 function CarePlanPicker(props) {
     return (
-        <ul>
+        <ul className="picker">
             {props.careTiers.map((tier) => (
                 <li key={tier.id}>
                     <button
+                        className={
+                            tier.id === props.selected
+                                ? 'picker-option is-selected'
+                                : 'picker-option'
+                        }
                         onClick={() => props.onSelect(tier.id)}
-                        style={{
-                            fontWeight: tier.id === props.selected ? 'bold' : 'normal',
-                        }}
                     >
-                        {tier.name} - £{tier.price}/mo
+                        {tier.name}
+                        <span className="picker-price">£{tier.price}/mo</span>
                     </button>
                 </li>
             ))}

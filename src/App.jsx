@@ -10,6 +10,11 @@ function App() {
   const [selectedPackage, setSelectedPackage] = useState('standard')
   const [selectedAddons, setSelectedAddons] = useState([])
   const [selectedTier, setSelectedTier] = useState('hosting')
+  const [name, setName] = useState('')
+  const [business, setBusiness] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+
 
   function toggleAddons(id) {
     if (selectedAddons.includes(id)) {

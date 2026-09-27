@@ -1,0 +1,68 @@
+.enquiry {
+    margin-top: 32px;
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+}
+
+.enquiry h2 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.enquiry-intro {
+    margin: 0 0 20px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.enquiry-field {
+    margin-bottom: 16px;
+}
+
+.enquiry-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.enquiry-field input, .enquiry-field textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--base);
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    color: var(--charcoal);
+}
+
+.enquiry-field input:focus, .enquiry-field textarea:focus {
+    outline: 2px solid var(--purple);
+    outline-offset: -1px;
+    background: var(--surface);
+}
+
+.enquiry-field textarea {
+    resize: vertical;
+}
+
+.enquiry-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--purple);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.enquiry-submit:hover {
+    background: var(--purple-light);
+}

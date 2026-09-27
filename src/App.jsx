@@ -36,6 +36,7 @@ function App() {
         onSelect={setSelectedPackage}
       />
 
+    <div className="addon-section">
       <h2>Add-ons</h2>
 
       <AddonList
@@ -43,7 +44,8 @@ function App() {
         selected={selectedAddons}
         onToggle={toggleAddons}
       />
-
+    </div>
+    
       <h2>Care plans</h2>
       
       <CarePlanPicker

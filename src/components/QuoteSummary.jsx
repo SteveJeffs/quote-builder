@@ -13,7 +13,13 @@ function QuoteSummary(props) {
             </div>
 
             <div className="summary-monthly">
-                then <strong>£{props.monthly}</strong> per month to look after it
+                {props.monthly > 0 ? (
+                    <>
+                        then <strong>£{props.monthly}</strong> per month to look after it
+                    </>
+                ) : (
+                    <>No monthly charge, you host it yourself</>
+                )}
             </div>
         </div>
     )

@@ -86,3 +86,26 @@ h1, h2, h3 {
 .picker-option.is-selected .picker-price {
     color: var(--purple);
 }
+
+.page-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.logo {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+}
+
+.page-brand {
+    margin: 0;
+    font-family: Sora, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--purple)
+}

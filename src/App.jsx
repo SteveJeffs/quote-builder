@@ -4,6 +4,7 @@ import PackagePicker from './components/PackagePicker.jsx'
 import AddonList from './components/AddonList.jsx'
 import CarePlanPicker from './components/CarePlanPicker.jsx'
 import QuoteSummary from './components/QuoteSummary.jsx'
+import Logo from './components/Logo.jsx'
 
 function App() {
   const [selectedPackage, setSelectedPackage] = useState('standard')
@@ -28,7 +29,13 @@ function App() {
 
   return (
     <div className="page">
-      <h1>Keystone quote builder</h1>
+      <header className="page-header">
+        <Logo />
+        <div>
+          <p className="page-brand">Keystone Digital</p>
+          <h1>Quote Builder</h1>
+        </div>
+      </header>
 
       <PackagePicker
         packages={packages}
@@ -36,29 +43,29 @@ function App() {
         onSelect={setSelectedPackage}
       />
 
-    <div className="addon-section">
-      <h2>Add-ons</h2>
+      <div className="addon-section">
+        <h2>Add-ons</h2>
 
-      <AddonList
-        addons={addons}
-        selected={selectedAddons}
-        onToggle={toggleAddons}
-      />
-    </div>
-    
+        <AddonList
+          addons={addons}
+          selected={selectedAddons}
+          onToggle={toggleAddons}
+        />
+      </div>
+
       <h2>Care plans</h2>
-      
+
       <CarePlanPicker
-      careTiers={careTiers}
-      selected={selectedTier}
-      onSelect={setSelectedTier}
+        careTiers={careTiers}
+        selected={selectedTier}
+        onSelect={setSelectedTier}
       />
 
       <QuoteSummary
-      projectTotal={projectTotal}
-      monthly={tierPrice}
+        projectTotal={projectTotal}
+        monthly={tierPrice}
       />
-      
+
     </div>
   )
 }

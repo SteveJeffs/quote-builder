@@ -1,0 +1,46 @@
+.summary {
+    margin-top: 40px;
+    padding: 10px 28px 28px;
+    background: var(--surface);
+    border: 1.5px solid var(--purple);
+    border-radius: 14px;
+}
+
+.summary-heading {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-bottom: 12px;
+}
+
+.summary-total {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.summary-amount {
+    font-family: Sora, sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.summary-label {
+    font-size: 15px;
+    color: var(--muted);
+}
+.summary-monthly {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--muted);
+}
+
+.summary-monthly strong {
+    font-weight: 500;
+    color: var(--charcoal);
+}

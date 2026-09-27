@@ -1,6 +1,8 @@
+import './AddonList.css'
+
 function AddonList(props) {
     return (
-        <ul>
+        <ul className='picker'>
             {props.addons.map((addon) => (
                 <li key={addon.id}>
                     <label>

@@ -1,5 +1,3 @@
-import './PackagePicker.css'
-
 function PackagePicker(props) {
     return (
         <ul className='picker'>

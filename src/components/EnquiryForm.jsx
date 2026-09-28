@@ -48,9 +48,11 @@ function EnquiryForm(props) {
                 />
             </div>
 
-            <button type="button" 
+            <button 
+            type="button" 
             className="enquiry-submit"
             disabled={!props.canSend}
+            onClick={props.onSend}
             >
                 Send my quote
             </button>

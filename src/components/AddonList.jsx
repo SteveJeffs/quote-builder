@@ -5,7 +5,7 @@ function AddonList(props) {
         <ul className='picker'>
             {props.addons.map((addon) => (
                 <li key={addon.id}>
-                    <label classname="picker-option">
+                    <label className="picker-option">
                         <input
                             type="checkbox"
                             checked={props.selected.includes(addon.id)}

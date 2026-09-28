@@ -7,6 +7,8 @@ import QuoteSummary from './components/QuoteSummary.jsx'
 import Logo from './components/Logo.jsx'
 import EnquiryForm from './components/EnquiryForm.jsx'
 
+const MY_EMAIL = 'keystonedigital.surrey@gmail.com'
+
 function App() {
   const [selectedPackage, setSelectedPackage] = useState('standard')
   const [selectedAddons, setSelectedAddons] = useState([])
@@ -33,6 +35,32 @@ function App() {
   const tierPrice = chosenTier.price
   const projectTotal = packagePrice + addonsPrice
   const canSend = name.trim() !== '' && email.includes('@')
+
+  function sendQuote() {
+    const addonLines =
+      chosenAddons.length > 0
+        ? chosenAddons.map((addon) => `- ${addon.name}: £${addon.price}`).join('\n')
+        : '- None'
+
+    const body = `Name: ${name}
+  Business: ${business || 'Not given'}
+  Email: ${email}
+
+  Package: ${chosenPackage.name} (£${packagePrice})
+  Add-ons:
+  ${addonLines}
+  Care plan: ${chosenTier.name} (£${tierPrice}/month)
+
+  Project total: £${projectTotal}
+
+  Message: 
+  ${message || 'None'}`
+
+  const subject = 'Quote request: ${chosenPackage.name} website'
+
+  window.location.href =
+    `mailto:${MY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+  }
 
   return (
     <div className="page">
@@ -86,8 +114,9 @@ function App() {
         onEmailChange={setEmail}
         onMessageChange={setMessage}
         canSend={canSend}
+        onSend={sendQuote}
       />
-      
+
 
     </div>
   )

@@ -8,6 +8,13 @@ function EnquiryForm(props) {
                 <p className="enquiry-intro">
                     Thanks {props.name}. Your email app should have opened with everything filled in. Hit send there andd I'll get back to you within one working day.
                 </p>
+                <button
+                type="button"
+                className="enquiry-submit"
+                onClick={props.onEdit}
+                >
+                    Change my quote
+                </button>
             </div>
         )
     }

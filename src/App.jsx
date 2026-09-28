@@ -32,10 +32,10 @@ function App() {
   const packagePrice = chosenPackage.price
   const gbpIncluded = selectedPackage !== 'starter'
   const chosenAddons = addons
-  .filter((addon) => selectedAddons.includes(addon.id))
-  .map((addon) =>
-  addon.id === 'gbp' && gbpIncluded ? {...addon, price: 0 } : addon
-) 
+    .filter((addon) => selectedAddons.includes(addon.id))
+    .map((addon) =>
+      addon.id === 'gbp' && gbpIncluded ? { ...addon, price: 0 } : addon
+    )
   const addonsPrice = chosenAddons.reduce((total, addon) => total + addon.price, 0)
   const chosenTier = careTiers.find((tier) => tier.id === selectedTier)
   const tierPrice = chosenTier.price
@@ -46,10 +46,10 @@ function App() {
     const addonLines =
       chosenAddons.length > 0
         ? chosenAddons
-        .map((addon) =>
-          `- ${addon.name}: ${addon.price === 0 ? 'Included' : '£' + addon.price}`
-      )
-      .join('\n')
+          .map((addon) =>
+            `- ${addon.name}: ${addon.price === 0 ? 'Included' : '£' + addon.price}`
+          )
+          .join('\n')
         : '- None'
 
     const body = `Name: ${name}
@@ -66,13 +66,17 @@ function App() {
   Message: 
   ${message || 'None'}`
 
-  const subject = 'Quote request: ${chosenPackage.name} website'
+    const subject = 'Quote request: ${chosenPackage.name} website'
 
-  window.location.href =
-    `mailto:${MY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    window.location.href =
+      `mailto:${MY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
 
     setSent(true)
   }
+
+function editQuote() {
+  setSent(false)
+}
 
   return (
     <div className="page">
@@ -129,6 +133,7 @@ function App() {
         canSend={canSend}
         onSend={sendQuote}
         sent={sent}
+        onEdit={editQuote}
       />
 
 

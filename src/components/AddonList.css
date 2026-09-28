@@ -4,6 +4,10 @@
     gap: 12px;
 }
 
+.picker-option .picker-price {
+    margin-left: auto;
+}
+
 .addon-section {
     background: #f7f3fe;
     border: 1px solid #e8defb;

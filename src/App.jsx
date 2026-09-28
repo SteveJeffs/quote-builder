@@ -97,6 +97,7 @@ function App() {
           addons={addons}
           selected={selectedAddons}
           onToggle={toggleAddons}
+          gbpIncluded={gbpIncluded}
         />
       </div>
 

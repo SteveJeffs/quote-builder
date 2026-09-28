@@ -12,6 +12,11 @@ function AddonList(props) {
                             onChange={() => props.onToggle(addon.id)}
                         />
                         {addon.name}<span className="picker-price">£{addon.price}</span>
+                        <span className="picker-price">
+                            {addon.id === 'gbp' && props.gbpIncluded
+                                ? 'Included'
+                                : `£${addon.price}`}
+                        </span>
                     </label>
                 </li>
             ))}

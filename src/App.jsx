@@ -5,6 +5,7 @@ import AddonList from './components/AddonList.jsx'
 import CarePlanPicker from './components/CarePlanPicker.jsx'
 import QuoteSummary from './components/QuoteSummary.jsx'
 import Logo from './components/Logo.jsx'
+import EnquiryForm from './components/EnquiryForm.jsx'
 
 function App() {
   const [selectedPackage, setSelectedPackage] = useState('standard')
@@ -73,6 +74,18 @@ function App() {
         projectTotal={projectTotal}
         monthly={tierPrice}
       />
+
+      <EnquiryForm
+        name={name}
+        business={business}
+        email={email}
+        message={message}
+        onNameChange={setName}
+        onBusinessChange={setBusiness}
+        onEmailChange={setEmail}
+        onMessageChange={setMessage}
+      />
+      
 
     </div>
   )

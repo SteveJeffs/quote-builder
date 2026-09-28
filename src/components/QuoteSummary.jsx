@@ -19,7 +19,7 @@ function QuoteSummary(props) {
                         <span className="summary-figure">
                         {addon.price === 0
                         ? 'Included'
-                    : '£${addon.price.toLocaleString('en-GB')}'}
+                    : `£${addon.price.toLocaleString('en-GB')}`}
                         </span>
                     </div>
                 ))}

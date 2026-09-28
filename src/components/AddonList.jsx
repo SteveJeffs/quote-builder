@@ -1,5 +1,5 @@
-
 import './AddonList.css'
+
 function AddonList(props) {
     return (
         <ul className='picker'>

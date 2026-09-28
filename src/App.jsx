@@ -17,6 +17,7 @@ function App() {
   const [business, setBusiness] = useState('')
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
+  const [sent, setSent] = useState(false)
 
 
   function toggleAddons(id) {
@@ -60,6 +61,8 @@ function App() {
 
   window.location.href =
     `mailto:${MY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+
+    setSent(true)
   }
 
   return (
@@ -115,6 +118,7 @@ function App() {
         onMessageChange={setMessage}
         canSend={canSend}
         onSend={sendQuote}
+        sent={sent}
       />
 
 

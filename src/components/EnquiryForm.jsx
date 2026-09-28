@@ -23,7 +23,7 @@ function EnquiryForm(props) {
                 <input
                     id="business"
                     type="text"
-                    vaule={props.business}
+                    value={props.business}
                     onChange={(event) => props.onBusinessChange(event.target.value)}
                 />
             </div>
@@ -38,19 +38,26 @@ function EnquiryForm(props) {
                 />
             </div>
 
-            <div className="message">
+            <div className="enquiry-field">
                 <label htmlFor="message">Anything else I should know?</label>
                 <textarea
                     id="message"
                     rows="4"
                     value={props.message}
-                    onClick={(event) => props.onMessageChange(event.target.value)}
+                    onChange={(event) => props.onMessageChange(event.target.value)}
                 />
             </div>
 
-            <button type="button" className="enquiry-submit">
+            <button type="button" 
+            className="enquiry-submit"
+            disabled={!props.canSend}
+            >
                 Send my quote
             </button>
+
+        {!props.canSend && (
+            <p className="enquiry-hint">Add your name and email to send.</p>
+        )}
 
         </div>
     )

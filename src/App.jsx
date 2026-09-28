@@ -32,6 +32,7 @@ function App() {
   const chosenTier = careTiers.find((tier) => tier.id === selectedTier)
   const tierPrice = chosenTier.price
   const projectTotal = packagePrice + addonsPrice
+  const canSend = name.trim() !== '' && email.includes('@')
 
   return (
     <div className="page">
@@ -84,6 +85,7 @@ function App() {
         onBusinessChange={setBusiness}
         onEmailChange={setEmail}
         onMessageChange={setMessage}
+        canSend={canSend}
       />
       
 

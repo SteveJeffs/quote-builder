@@ -9,6 +9,7 @@ export const addons = [
     { id: 'booking', name: 'Booking intergration', price: 120 },
     { id: 'branding', name: 'Basic banding', price: 150 },
     { id: 'priority', name: 'Priority build', price: 150 },
+    { id: 'gbp', name: 'Google Business Profile', price: 95},
 ]
 
 export const careTiers = [

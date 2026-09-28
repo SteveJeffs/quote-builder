@@ -30,7 +30,12 @@ function App() {
 
   const chosenPackage = packages.find((pkg) => pkg.id === selectedPackage)
   const packagePrice = chosenPackage.price
-  const chosenAddons = addons.filter((addon) => selectedAddons.includes(addon.id))
+  const gbpIncluded = selectedPackage !== 'starter'
+  const chosenAddons = addons
+  .filter((addon) => selectedAddons.includes(addon.id))
+  .map((addon) =>
+  addon.id === 'gbp' && gbpIncluded ? {...addon, price: 0 } : addon
+) 
   const addonsPrice = chosenAddons.reduce((total, addon) => total + addon.price, 0)
   const chosenTier = careTiers.find((tier) => tier.id === selectedTier)
   const tierPrice = chosenTier.price
@@ -40,7 +45,11 @@ function App() {
   function sendQuote() {
     const addonLines =
       chosenAddons.length > 0
-        ? chosenAddons.map((addon) => `- ${addon.name}: £${addon.price}`).join('\n')
+        ? chosenAddons
+        .map((addon) =>
+          `- ${addon.name}: ${addon.price === 0 ? 'Included' : '£' + addon.price}`
+      )
+      .join('\n')
         : '- None'
 
     const body = `Name: ${name}

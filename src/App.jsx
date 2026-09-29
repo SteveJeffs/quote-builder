@@ -6,6 +6,7 @@ import CarePlanPicker from './components/CarePlanPicker.jsx'
 import QuoteSummary from './components/QuoteSummary.jsx'
 import Logo from './components/Logo.jsx'
 import EnquiryForm from './components/EnquiryForm.jsx'
+import ExtraPages from './components/ExtraPages.jsx'
 
 const MY_EMAIL = 'keystonedigital.surrey@gmail.com'
 
@@ -13,6 +14,7 @@ function App() {
   const [selectedPackage, setSelectedPackage] = useState('standard')
   const [selectedAddons, setSelectedAddons] = useState([])
   const [selectedTier, setSelectedTier] = useState('hosting')
+  const [extraPages, setExtraPages] = useState(0)
   const [name, setName] = useState('')
   const [business, setBusiness] = useState('')
   const [email, setEmail] = useState('')
@@ -39,7 +41,8 @@ function App() {
   const addonsPrice = chosenAddons.reduce((total, addon) => total + addon.price, 0)
   const chosenTier = careTiers.find((tier) => tier.id === selectedTier)
   const tierPrice = chosenTier.price
-  const projectTotal = packagePrice + addonsPrice
+  const extraPagesPrice = extraPages * 75
+  const projectTotal = packagePrice + addonsPrice + extraPagesPrice
   const canSend = name.trim() !== '' && email.includes('@')
 
   function sendQuote() {
@@ -53,20 +56,20 @@ function App() {
         : '- None'
 
     const body = `Name: ${name}
-  Business: ${business || 'Not given'}
-  Email: ${email}
+  Business:${business || 'Not given'}
+  Email:${email}
 
-  Package: ${chosenPackage.name} (£${packagePrice})
+  Package:${chosenPackage.name} (£${packagePrice})
   Add-ons:
   ${addonLines}
-  Care plan: ${chosenTier.name} (£${tierPrice}/month)
+  Care plan:${chosenTier.name} (£${tierPrice}/month)
 
   Project total: £${projectTotal}
 
   Message: 
   ${message || 'None'}`
 
-    const subject = 'Quote request: ${chosenPackage.name} website'
+    const subject = `Quote request: ${chosenPackage.name} website`
 
     window.location.href =
       `mailto:${MY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
@@ -74,9 +77,9 @@ function App() {
     setSent(true)
   }
 
-function editQuote() {
-  setSent(false)
-}
+  function editQuote() {
+    setSent(false)
+  }
 
   return (
     <div className="page">
@@ -103,6 +106,7 @@ function editQuote() {
           onToggle={toggleAddons}
           gbpIncluded={gbpIncluded}
         />
+        <ExtraPages count={extraPages} onChange={setExtraPages} />
       </div>
 
       <h2>Care plans</h2>

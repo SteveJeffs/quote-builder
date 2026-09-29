@@ -1,0 +1,40 @@
+.extra-pages {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 12px;
+    padding: 14px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.extra-pages label {
+    font-weight: 500;
+}
+
+.extra-pages-note {
+    display: block;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.extra-pages input {
+    width: 80px;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--base);
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    color: var(--charcoal);
+    text-align: center;
+}
+
+.extra-pages input:focus {
+    outline: 2px solid var(--purple);
+    outline-offset: -1px;
+    background: var(--surface);
+}

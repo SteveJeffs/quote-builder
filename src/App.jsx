@@ -62,6 +62,7 @@ function App() {
   Package:${chosenPackage.name} (£${packagePrice})
   Add-ons:
   ${addonLines}
+  Extra pages: ${extraPages} (£${extraPagesPrice})
   Care plan:${chosenTier.name} (£${tierPrice}/month)
 
   Project total: £${projectTotal}
@@ -123,6 +124,8 @@ function App() {
         chosenTier={chosenTier}
         projectTotal={projectTotal}
         monthly={tierPrice}
+        extraPages={extraPages}
+        extraPagesPrice={extraPagesPrice}
       />
 
       <EnquiryForm

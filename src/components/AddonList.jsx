@@ -11,7 +11,7 @@ function AddonList(props) {
                             checked={props.selected.includes(addon.id)}
                             onChange={() => props.onToggle(addon.id)}
                         />
-                        {addon.name}<span className="picker-price">£{addon.price}</span>
+                        {addon.name}
                         <span className="picker-price">
                             {addon.id === 'gbp' && props.gbpIncluded
                                 ? 'Included'

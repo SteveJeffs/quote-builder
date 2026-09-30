@@ -17,14 +17,23 @@ function QuoteSummary(props) {
                     <div className="summary-line" key={addon.id}>
                         <span>{addon.name}</span>
                         <span className="summary-figure">
-                        {addon.price === 0
-                        ? 'Included'
-                    : `£${addon.price.toLocaleString('en-GB')}`}
+                            {addon.price === 0
+                                ? 'Included'
+                                : `£${addon.price.toLocaleString('en-GB')}`}
                         </span>
                     </div>
                 ))}
+                {props.extraPages > 0 && (
+                    <div className="summary-line">
+                        <span>Extra Pages x {props.extraPages}</span>
+                    <span className="summary-figure">
+                £{props.extraPagesPrice.toLocaleString('en-GB')}
+            </span>
+        </div>
+    )
+}
 
-            </div>
+            </div >
 
             <div className="summary-total">
                 <span className="summary-amount">
@@ -43,7 +52,7 @@ function QuoteSummary(props) {
                     <>No monthly charge, you host it yourself</>
                 )}
             </div>
-        </div>
+        </div >
     )
 }
 

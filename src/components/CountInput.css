@@ -1,4 +1,4 @@
-.extra-pages {
+.count-input {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -10,18 +10,18 @@
     border-radius: 10px;
 }
 
-.extra-pages label {
+.count-input label {
     font-weight: 500;
 }
 
-.extra-pages-note {
+.count-input-note {
     display: block;
     font-size: 13px;
     font-weight: 400;
     color: var(--muted);
 }
 
-.extra-pages input {
+.count-input input {
     width: 64px;
     padding: 6px 8px;
     border: 1px solid var(--border);
@@ -33,7 +33,7 @@
     text-align: center;
 }
 
-.extra-pages input:focus {
+.count-input input:focus {
     outline: 2px solid var(--purple);
     outline-offset: -1px;
     background: var(--surface);

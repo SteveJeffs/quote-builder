@@ -3,12 +3,12 @@ import './ExtraPages.css'
 function ExtraPages(props) {
     return (
         <div className="extra-pages">
-            <label htmlFor="extra-pages">
-                Extra pages
-                <span className="extra-pages-note">£75 each</span>
+            <label htmlFor="props.id">
+                {props.label}
+                <span className="extra-pages-note">{props.note}</span>
             </label>
             <input
-                id="extra-pages"
+                id={props.id}
                 type="number"
                 min="0"
                 max="10"

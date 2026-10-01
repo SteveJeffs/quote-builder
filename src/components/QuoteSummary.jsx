@@ -26,12 +26,21 @@ function QuoteSummary(props) {
                 {props.extraPages > 0 && (
                     <div className="summary-line">
                         <span>Extra Pages x {props.extraPages}</span>
-                    <span className="summary-figure">
-                £{props.extraPagesPrice.toLocaleString('en-GB')}
-            </span>
-        </div>
-    )
-}
+                        <span className="summary-figure">
+                            £{props.extraPagesPrice.toLocaleString('en-GB')}
+                        </span>
+
+                    </div>
+                )}
+
+                {props.copyPages > 0 && (
+                    <div className="summary-line">
+                        <span>Copywriting x {props.copyPages}</span>
+                        <span className="summary-figure">
+                            £{props.copyPagesPrice.toLocaleString('en-GB')}
+                        </span>
+                    </div>
+                )}
 
             </div >
 

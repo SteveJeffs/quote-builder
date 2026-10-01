@@ -15,6 +15,7 @@ function App() {
   const [selectedAddons, setSelectedAddons] = useState([])
   const [selectedTier, setSelectedTier] = useState('hosting')
   const [extraPages, setExtraPages] = useState(0)
+  const [copyPages, setCopyPages] = useState(0)
   const [name, setName] = useState('')
   const [business, setBusiness] = useState('')
   const [email, setEmail] = useState('')
@@ -42,7 +43,8 @@ function App() {
   const chosenTier = careTiers.find((tier) => tier.id === selectedTier)
   const tierPrice = chosenTier.price
   const extraPagesPrice = extraPages * 75
-  const projectTotal = packagePrice + addonsPrice + extraPagesPrice
+  const copyPrice = copyPages * 60
+  const projectTotal = packagePrice + addonsPrice + extraPagesPrice + copyPrice
   const canSend = name.trim() !== '' && email.includes('@')
 
   function sendQuote() {
@@ -63,6 +65,7 @@ Package: ${chosenPackage.name} (£${packagePrice})
 Add-ons:
 ${addonLines}
 Extra pages: ${extraPages} (£${extraPagesPrice})
+Copywriting: ${copyPages} pages (£${copyPrice})
 Care plan: ${chosenTier.name} (£${tierPrice}/month)
 
 Project total: £${projectTotal}
@@ -107,7 +110,22 @@ ${message || 'None'}`
           onToggle={toggleAddons}
           gbpIncluded={gbpIncluded}
         />
-        <ExtraPages count={extraPages} onChange={setExtraPages} />
+        <ExtraPages
+          id="extra-pages"
+          label="Extra pages"
+          note="£75 each"
+          count={extraPages}
+          onChange={setExtraPages}
+        />
+
+        <ExtraPages
+          id="copy-pages"
+          label="Copywriting"
+          note="£60 each"
+          count={copyPages}
+          onChange={setCopyPages}
+        />
+
       </div>
 
       <h2>Care plans</h2>
@@ -126,6 +144,8 @@ ${message || 'None'}`
         monthly={tierPrice}
         extraPages={extraPages}
         extraPagesPrice={extraPagesPrice}
+        copyPages={copyPages}
+        copyPagesPrice={copyPrice}
       />
 
       <EnquiryForm

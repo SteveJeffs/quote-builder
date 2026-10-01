@@ -16,6 +16,7 @@ function AddonList(props) {
                             {addon.id === 'gbp' && props.gbpIncluded
                                 ? 'Included'
                                 : `£${addon.price}`}
+                                {addon.priceNote && ' + ' + addon.priceNote}
                         </span>
                     </label>
                 </li>

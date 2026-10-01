@@ -17,6 +17,7 @@ function QuoteSummary(props) {
                     <div className="summary-line" key={addon.id}>
                         <span>{addon.name}</span>
                         <span className="summary-figure">
+                            {addon.priceNote && addon.priceNote + ' + '}
                             {addon.price === 0
                                 ? 'Included'
                                 : `£${addon.price.toLocaleString('en-GB')}`}

@@ -52,7 +52,7 @@ function App() {
       chosenAddons.length > 0
         ? chosenAddons
           .map((addon) =>
-            `- ${addon.name}: ${addon.price === 0 ? 'Included' : '£' + addon.price}`
+            `- ${addon.name}: ${addon.price ? addon.priceNote + ' + ' : ''}${addon.price === 0 ? 'Included' : '£' + addon.price}`
           )
           .join('\n')
         : '- None'

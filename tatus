@@ -1,0 +1,14 @@
+warning: in the working copy of 'src/App.jsx', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/src/App.jsx b/src/App.jsx[m
+[1mindex d98a566..1af94da 100644[m
+[1m--- a/src/App.jsx[m
+[1m+++ b/src/App.jsx[m
+[36m@@ -73,7 +73,7 @@[m [mfunction App() {[m
+     const subject = `Quote request: ${chosenPackage.name} website`[m
+ [m
+     window.location.href =[m
+[31m-      `mailto:${MY_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`[m
+[32m+[m[32m      `mailto:${MY_EMAIL}?subject = ${encodeURIComponent(subject)}& body=${encodeURIComponent(body)}`[m
+ [m
+     setSent(true)[m
+   }[m

@@ -56,19 +56,19 @@ function App() {
         : '- None'
 
     const body = `Name: ${name}
-  Business:${business || 'Not given'}
-  Email:${email}
+Business: ${business || 'Not given'}
+Email: ${email}
 
-  Package:${chosenPackage.name} (£${packagePrice})
-  Add-ons:
-  ${addonLines}
-  Extra pages: ${extraPages} (£${extraPagesPrice})
-  Care plan:${chosenTier.name} (£${tierPrice}/month)
+Package: ${chosenPackage.name} (£${packagePrice})
+Add-ons:
+${addonLines}
+Extra pages: ${extraPages} (£${extraPagesPrice})
+Care plan: ${chosenTier.name} (£${tierPrice}/month)
 
-  Project total: £${projectTotal}
+Project total: £${projectTotal}
 
-  Message: 
-  ${message || 'None'}`
+Message: 
+${message || 'None'}`
 
     const subject = `Quote request: ${chosenPackage.name} website`
 

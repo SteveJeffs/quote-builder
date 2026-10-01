@@ -1,11 +1,11 @@
-import './ExtraPages.css'
+import './CountInput.css'
 
-function ExtraPages(props) {
+function CountInput(props) {
     return (
-        <div className="extra-pages">
-            <label htmlFor="props.id">
+        <div className="count-input">
+            <label htmlFor={props.id}>
                 {props.label}
-                <span className="extra-pages-note">{props.note}</span>
+                <span className="count-input-note">{props.note}</span>
             </label>
             <input
                 id={props.id}
@@ -21,4 +21,4 @@ function ExtraPages(props) {
     )
 }
 
-export default ExtraPages
+export default CountInput

@@ -6,7 +6,7 @@ import CarePlanPicker from './components/CarePlanPicker.jsx'
 import QuoteSummary from './components/QuoteSummary.jsx'
 import Logo from './components/Logo.jsx'
 import EnquiryForm from './components/EnquiryForm.jsx'
-import ExtraPages from './components/ExtraPages.jsx'
+import CountInput from './components/CountInput.jsx'
 
 const MY_EMAIL = 'keystonedigital.surrey@gmail.com'
 
@@ -52,7 +52,7 @@ function App() {
       chosenAddons.length > 0
         ? chosenAddons
           .map((addon) =>
-            `- ${addon.name}: ${addon.price ? addon.priceNote + ' + ' : ''}${addon.price === 0 ? 'Included' : '£' + addon.price}`
+            `- ${addon.name}: ${addon.priceNote ? addon.priceNote + ' + ' : ''}${addon.price === 0 ? 'Included' : '£' + addon.price}`
           )
           .join('\n')
         : '- None'
@@ -110,7 +110,7 @@ ${message || 'None'}`
           onToggle={toggleAddons}
           gbpIncluded={gbpIncluded}
         />
-        <ExtraPages
+        <CountInput
           id="extra-pages"
           label="Extra pages"
           note="£75 each"
@@ -118,7 +118,7 @@ ${message || 'None'}`
           onChange={setExtraPages}
         />
 
-        <ExtraPages
+        <CountInput
           id="copy-pages"
           label="Copywriting"
           note="£60 each"

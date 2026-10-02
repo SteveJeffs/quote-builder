@@ -1,16 +1,56 @@
-# React + Vite
+# Keystone Digital Quote Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A live quote builder for Keystone Digital, my web design business in Surrey. Visitors choose a website package, add-ons and a monthly care plan, watch the price update as they go, and send me the full spec by email.
 
-Currently, two official plugins are available:
+**Live Site:** [stevejeffs.github.oi/quote-builder] (https://stevejeffs.github.io/quote-builder/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What it does
 
-## React Compiler
+- Choose a Starter, Standard or Premium package
+- Tick add-ons, with Google Business Profile included free on Standard and Premium
+- Add extra pages and copywriting by the page
+- Pick a monthly care plan
+- See a live receipt with the project total and monthly cost
+- fill in a validated enquiry form that sends the full quote as a pre-filled email
+- Works on mobile, including iPhone
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Built with
 
-## Expanding the ESLint configuration
+- React
+- Vite
+- Plain CSS
+- GitHub Actions, deploying to GitHub Pages
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  ## How it's built
+
+  - All prices live in one date file, `src/data/pricing.js`. Changing a price or adding an add-on there updates the list, the receipt and the email.
+  - State lives in `App`, and components receive values and functions through props.
+  - Totals are worked out from state on every render rather than stored separately.
+  - One reuseable `CountInput` component handles both extra pages and copywriting.
+ 
+  ## What I learned
+
+  ## What I learned
+
+This was my first React project. I built it with AI guiding me, typing every line by hand rather than copying and pasting, and making sure I understood each part before moving on.
+
+- **Props and state:** how a value lives in `App` and gets handed down to a component, and why the name on the tag has to match what the component reads.
+- **Reading errors:** "is not defined" usually means a name doesn't match, like `CopyPrice` instead of `copyPrice`. I began fixing these myself from the error message.
+- **Small details matter:** typos, a capital letter, or single quotes instead of backticks break things. Typing everything by hand taught me to spot them.
+- **Making my own product decisions:** I chose per-page copywriting so clients aren't overcharged, moved the domain cost onto the price side, and lined up figures on the receipt. I tried writing each change myself before asking for help.
+- **Testing on a real phone:** the desktop phone view looked fine, but my iPhone zoomed into inputs with text under 16px and the page wobbled sideways. I only found it by testing on the device.
+- **Where I'm at:** I can follow and adapt code well, but I can't yet write a component from a blank page. I'm now practising rebuilding components from memory to close that gap.
+ 
+    ## What's next
+
+    - Replace the email link with Netlify Forms, so quotes arrive without the visitor needing an email app
+    - Save a quote in progress so it survives a page refresh
+   
+## Run it locally
+
+```
+npm install
+npm run dev
+```
+
+built by Steve Jeffs.
